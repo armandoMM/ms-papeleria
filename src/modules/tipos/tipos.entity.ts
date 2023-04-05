@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
+@Entity('tipos')
 export class Tipo {
   @PrimaryGeneratedColumn('increment')
   id: number;
@@ -14,8 +14,8 @@ export class Tipo {
   permisoRoot: string;
   @Column()
   activo: string;
-  @Column()
-  fecha_edicion: Date;
+  @Column({ type: 'date', nullable: true })
+  fecha_edicion: string;
   @Column()
   hora_edicion: string;
   @Column()

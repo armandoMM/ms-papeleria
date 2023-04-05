@@ -6,7 +6,7 @@ import { EstadosService } from './estados.service';
 export class EstadosController {
   constructor(private readonly estadosService: EstadosService) {}
   @Get()
-  getAllEstados(): Estado[] {
-    return [];
+  getAllEstados(): Promise<Estado[]> {
+    return this.estadosService.getAllEstados();
   }
 }
