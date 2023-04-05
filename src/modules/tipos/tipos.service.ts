@@ -1,0 +1,8 @@
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
+export class TiposService {
+  getAllTipos() {
+    return [];
+  }
+}
