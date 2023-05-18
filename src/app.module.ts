@@ -4,6 +4,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsuariosModule } from './modules/usuarios/usuarios.module';
 import { EstadosModule } from './modules/estados/estados.module';
 import { TiposModule } from './modules/tipos/tipos.module';
+import { MarcasModule } from './modules/marcas/marcas.module';
+import { CategoriasModule } from './modules/categorias/categorias.module';
+import { ProveedoresModule } from './modules/proveedores/proveedores.module';
+import { PreveedoresService } from './modules/preveedores/preveedores.service';
+import { SucursalesModule } from './modules/sucursales/sucursales.module';
+import { VentasModule } from './modules/ventas/ventas.module';
+import { ProductosVentaModule } from './modules/productos_venta/productos_venta.module';
 
 @Module({
   imports: [
@@ -22,6 +29,13 @@ import { TiposModule } from './modules/tipos/tipos.module';
     }),
     EstadosModule,
     TiposModule,
+    MarcasModule,
+    CategoriasModule,
+    ProveedoresModule,
+    SucursalesModule,
+    VentasModule,
+    ProductosVentaModule,
   ],
+  providers: [PreveedoresService],
 })
 export class AppModule {}
