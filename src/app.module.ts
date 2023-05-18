@@ -7,7 +7,6 @@ import { TiposModule } from './modules/tipos/tipos.module';
 import { MarcasModule } from './modules/marcas/marcas.module';
 import { CategoriasModule } from './modules/categorias/categorias.module';
 import { ProveedoresModule } from './modules/proveedores/proveedores.module';
-import { PreveedoresService } from './modules/preveedores/preveedores.service';
 import { SucursalesModule } from './modules/sucursales/sucursales.module';
 import { VentasModule } from './modules/ventas/ventas.module';
 import { ProductosVentaModule } from './modules/productos_venta/productos_venta.module';
@@ -36,6 +35,5 @@ import { ProductosVentaModule } from './modules/productos_venta/productos_venta.
     VentasModule,
     ProductosVentaModule,
   ],
-  providers: [PreveedoresService],
 })
 export class AppModule {}
