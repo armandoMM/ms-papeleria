@@ -8,6 +8,7 @@ export class Tipo {
   tipo: string;
   @Column()
   descripcion: string;
+  // se puede quitar
   @Column()
   acronimo: string;
   @Column()
