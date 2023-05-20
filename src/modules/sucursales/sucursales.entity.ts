@@ -1,0 +1,37 @@
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { Estado } from '../estados/estados.entity';
+
+@Entity('sucursales')
+export class Sucursal {
+  @PrimaryGeneratedColumn('increment')
+  id: number;
+  @Column()
+  nombre: string;
+  @Column()
+  telefono: string;
+  @Column()
+  correo: string;
+  @Column()
+  numEmpleados: number;
+  @Column()
+  horario_ini: string;
+  @Column()
+  horario_fin: string;
+  @Column()
+  calle: string;
+  @Column()
+  numero: string;
+  @Column()
+  colonia: string;
+  @Column()
+  municipio: string;
+  @OneToOne(() => Estado)
+  @JoinColumn()
+  estado_id: Estado;
+}

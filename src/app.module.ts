@@ -10,6 +10,7 @@ import { ProveedoresModule } from './modules/proveedores/proveedores.module';
 import { SucursalesModule } from './modules/sucursales/sucursales.module';
 import { VentasModule } from './modules/ventas/ventas.module';
 import { ProductosVentaModule } from './modules/productos_venta/productos_venta.module';
+import { ProductosModule } from './modules/productos/productos.module';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { ProductosVentaModule } from './modules/productos_venta/productos_venta.
     SucursalesModule,
     VentasModule,
     ProductosVentaModule,
+    ProductosModule,
   ],
 })
 export class AppModule {}
