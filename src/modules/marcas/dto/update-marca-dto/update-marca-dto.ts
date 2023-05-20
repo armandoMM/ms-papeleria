@@ -1,1 +1,4 @@
-export class UpdateMarcaDto {}
+export class UpdateMarcaDto {
+  nombre: string;
+  importacion?: string;
+}
