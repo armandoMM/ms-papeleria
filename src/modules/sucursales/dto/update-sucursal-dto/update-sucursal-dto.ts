@@ -1,1 +1,15 @@
-export class UpdateSucursalDto {}
+import { Estado } from 'src/modules/estados/estados.entity';
+
+export class UpdateSucursalDto {
+  nombre: string;
+  telefono: string;
+  correo: string;
+  numEmpleados: number;
+  horario_ini: string;
+  horario_fin: string;
+  calle?: string;
+  numero?: string;
+  colonia?: string;
+  municipio?: string;
+  estado_id?: Estado;
+}

@@ -18,12 +18,12 @@ export class MarcasController {
   }
 
   @Post('/update-marca')
-  updateUser(@Body() currentUser: UpdateMarcaDto) {
-    return this.marcaService.updateMarca(currentUser);
+  updateMarca(@Body() currentMarca: UpdateMarcaDto) {
+    return this.marcaService.updateMarca(currentMarca);
   }
 
   @Post('/delete-marca')
-  deleteUser(@Body('id') id: number) {
+  deleteMarca(@Body('id') id: number) {
     return this.marcaService.deleteMarca(id);
   }
 }
