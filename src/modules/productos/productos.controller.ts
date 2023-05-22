@@ -17,7 +17,7 @@ export class ProductosController {
     return this.productoService.getProducto(nombre);
   }
 
-  @Get()
+  @Get('/all')
   getAllProductos(): Promise<Producto[]> {
     return this.productoService.getAllProductos();
   }

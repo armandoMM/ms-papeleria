@@ -19,7 +19,7 @@ export class ProductosVentaController {
     return this.prodsVentaService.getProdVenta(id);
   }
 
-  @Get()
+  @Get('/all')
   getAllProdsVentas(): Promise<ProductosVenta[]> {
     return this.prodsVentaService.getAllProdsVentas();
   }

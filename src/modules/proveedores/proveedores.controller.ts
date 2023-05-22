@@ -17,7 +17,7 @@ export class ProveedoresController {
     return this.proveedorService.getProveedor(nombre);
   }
 
-  @Get()
+  @Get('/all')
   getAllProveedores(): Promise<Proveedor[]> {
     return this.proveedorService.getAllProveedores();
   }

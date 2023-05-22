@@ -12,7 +12,7 @@ export class MarcasController {
     return this.marcaService.createMarca(newMarca);
   }
 
-  @Get()
+  @Get('/all')
   getAllMarcas(): Promise<Marca[]> {
     return this.marcaService.getAllMarcas();
   }

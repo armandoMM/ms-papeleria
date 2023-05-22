@@ -25,7 +25,7 @@ export class UsuariosController {
     return this.usuarioService.deleteUser(id);
   }
 
-  @Get()
+  @Get('/all')
   getAllUsers(): Promise<Usuario[]> {
     return this.usuarioService.getAllUsuarios();
   }

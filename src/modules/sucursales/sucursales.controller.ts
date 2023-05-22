@@ -17,7 +17,7 @@ export class SucursalesController {
     return this.sucursalService.getSucursal(nombre);
   }
 
-  @Get()
+  @Get('/all')
   getAllSucursales(): Promise<Sucursal[]> {
     return this.sucursalService.getAllSucursales();
   }

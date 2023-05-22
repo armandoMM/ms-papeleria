@@ -17,7 +17,7 @@ export class VentasController {
     return this.ventaService.getVenta(fecha_registro);
   }
 
-  @Get()
+  @Get('/all')
   getAllVentas(): Promise<Venta[]> {
     return this.ventaService.getAllVentas();
   }

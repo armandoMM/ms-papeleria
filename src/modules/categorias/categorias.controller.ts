@@ -12,7 +12,7 @@ export class CategoriasController {
     return this.categoriaService.createCategoria(newCategoria);
   }
 
-  @Get()
+  @Get('/all')
   getAllCategorias(): Promise<Categoria[]> {
     return this.categoriaService.getAllCategorias();
   }
