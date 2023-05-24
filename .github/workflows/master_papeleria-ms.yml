@@ -62,4 +62,7 @@ jobs:
           app-name: 'papeleria-ms'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_56817C93E5944A5BB9AFEA5F8D8CCBF7 }}
-          package: .
+          package: nest.zip
+
+      - name: Delete zip file
+        run: rm nest.zip
