@@ -1,10 +1,4 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  OneToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Estado } from '../estados/estados.entity';
 import { Tipo } from '../tipos/tipos.entity';
 
@@ -32,10 +26,8 @@ export class Usuario {
   colonia: string;
   @Column()
   municipio: string;
-  @OneToOne(() => Estado)
-  @JoinColumn()
+  @ManyToOne(() => Estado)
   estado_id: Estado;
-  @OneToOne(() => Tipo)
-  @JoinColumn()
+  @ManyToOne(() => Tipo)
   tipo_id: Tipo;
 }

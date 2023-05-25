@@ -1,10 +1,4 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  OneToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Usuario } from '../usuarios/usuario.entity';
 import { Sucursal } from '../sucursales/sucursales.entity';
 
@@ -26,10 +20,8 @@ export class Venta {
   caja: number;
   @Column()
   estatus: string;
-  @OneToOne(() => Sucursal)
-  @JoinColumn()
+  @ManyToOne(() => Sucursal)
   sucursal_id: Sucursal;
-  @OneToOne(() => Usuario)
-  @JoinColumn()
+  @ManyToOne(() => Usuario)
   usuario_id: Usuario;
 }

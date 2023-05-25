@@ -2,6 +2,7 @@ import {
   Column,
   Entity,
   JoinColumn,
+  ManyToOne,
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
@@ -31,13 +32,12 @@ export class Producto {
   ganancia_may: number;
   @Column()
   ganancia_unit: number;
+  //TODO: PUEDEN CAMBIAR A MANYTOONE
   @OneToOne(() => Categoria)
   @JoinColumn()
   categoria_id: Categoria;
-  @OneToOne(() => Marca)
-  @JoinColumn()
+  @ManyToOne(() => Marca)
   marca_id: Marca;
-  @OneToOne(() => Proveedor)
-  @JoinColumn()
+  @ManyToOne(() => Proveedor)
   proveedor_id: Proveedor;
 }

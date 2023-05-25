@@ -1,10 +1,4 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  OneToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Estado } from '../estados/estados.entity';
 
 @Entity('proveedores')
@@ -25,7 +19,6 @@ export class Proveedor {
   colonia: string;
   @Column()
   municipio: string;
-  @OneToOne(() => Estado)
-  @JoinColumn()
+  @ManyToOne(() => Estado)
   estado_id: Estado;
 }

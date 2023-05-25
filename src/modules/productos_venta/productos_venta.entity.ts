@@ -1,10 +1,4 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  OneToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Venta } from '../ventas/ventas.entity';
 import { Producto } from '../productos/productos.entity';
 
@@ -14,10 +8,8 @@ export class ProductosVenta {
   id: number;
   @Column()
   cantidad: number;
-  @OneToOne(() => Venta)
-  @JoinColumn()
+  @ManyToOne(() => Venta)
   venta_id: Venta;
-  @OneToOne(() => Producto)
-  @JoinColumn()
+  @ManyToOne(() => Producto)
   producto_id: Producto;
 }
