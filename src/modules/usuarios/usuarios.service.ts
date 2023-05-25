@@ -15,8 +15,8 @@ export class UsuariosService {
     return this.userRepository.save(newUsuario);
   }
 
-  getAllUsuarios() {
-    return this.userRepository.find();
+  async getAllUsuarios() {
+    return await this.userRepository.find();
   }
 
   async getUser(nombre: string, pw: string) {
