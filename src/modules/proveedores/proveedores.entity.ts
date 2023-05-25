@@ -19,6 +19,6 @@ export class Proveedor {
   colonia: string;
   @Column()
   municipio: string;
-  @ManyToOne(() => Estado)
+  @ManyToOne(() => Estado, (estado) => estado.id)
   estado_id: Estado;
 }

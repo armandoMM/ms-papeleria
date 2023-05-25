@@ -36,8 +36,8 @@ export class Producto {
   @OneToOne(() => Categoria)
   @JoinColumn()
   categoria_id: Categoria;
-  @ManyToOne(() => Marca)
+  @ManyToOne(() => Marca, (marca) => marca.id)
   marca_id: Marca;
-  @ManyToOne(() => Proveedor)
+  @ManyToOne(() => Proveedor, (proveedor) => proveedor.id)
   proveedor_id: Proveedor;
 }

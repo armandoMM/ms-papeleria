@@ -20,8 +20,8 @@ export class Venta {
   caja: number;
   @Column()
   estatus: string;
-  @ManyToOne(() => Sucursal)
+  @ManyToOne(() => Sucursal, (sucursal) => sucursal.id)
   sucursal_id: Sucursal;
-  @ManyToOne(() => Usuario)
+  @ManyToOne(() => Usuario, (usuario) => usuario.id)
   usuario_id: Usuario;
 }

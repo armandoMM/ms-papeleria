@@ -26,8 +26,8 @@ export class Usuario {
   colonia: string;
   @Column()
   municipio: string;
-  @ManyToOne(() => Estado)
+  @ManyToOne(() => Estado, (estado) => estado.id)
   estado_id: Estado;
-  @ManyToOne(() => Tipo)
+  @ManyToOne(() => Tipo, (tipo) => tipo.id)
   tipo_id: Tipo;
 }

@@ -10,6 +10,6 @@ export class ProductosVenta {
   cantidad: number;
   @ManyToOne(() => Venta)
   venta_id: Venta;
-  @ManyToOne(() => Producto)
+  @ManyToOne(() => Producto, (producto) => producto.id)
   producto_id: Producto;
 }
