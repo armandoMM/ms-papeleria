@@ -17,7 +17,11 @@ export class ProveedoresService {
   }
 
   getAllProveedores() {
-    return this.proveedorRepository.find();
+    return this.proveedorRepository.find({
+      relations: {
+        estado_id: true,
+      },
+    });
   }
 
   async getProveedor(nombre: string) {

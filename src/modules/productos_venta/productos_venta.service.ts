@@ -17,7 +17,12 @@ export class ProductosVentaService {
   }
 
   getAllProdsVentas() {
-    return this.prodVentaRepository.find();
+    return this.prodVentaRepository.find({
+      relations: {
+        venta_id: true,
+        producto_id: true,
+      },
+    });
   }
 
   async getProdVenta(id: number) {

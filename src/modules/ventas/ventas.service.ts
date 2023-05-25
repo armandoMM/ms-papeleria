@@ -16,7 +16,12 @@ export class VentasService {
   }
 
   getAllVentas() {
-    return this.ventaRepository.find();
+    return this.ventaRepository.find({
+      relations: {
+        sucursal_id: true,
+        usuario_id: true,
+      },
+    });
   }
 
   async getVenta(fecha_registro: string) {

@@ -17,7 +17,13 @@ export class ProductosService {
   }
 
   getAllProductos() {
-    return this.productoRepository.find();
+    return this.productoRepository.find({
+      relations: {
+        marca_id: true,
+        categoria_id: true,
+        proveedor_id: true,
+      },
+    });
   }
 
   async getProducto(nombre: string) {

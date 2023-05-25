@@ -16,7 +16,12 @@ export class UsuariosService {
   }
 
   async getAllUsuarios() {
-    return await this.userRepository.find();
+    return await this.userRepository.find({
+      relations: {
+        tipo_id: true,
+        estado_id: true,
+      },
+    });
   }
 
   async getUser(nombre: string, pw: string) {
