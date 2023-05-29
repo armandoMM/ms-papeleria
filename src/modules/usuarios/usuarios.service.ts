@@ -1,4 +1,9 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  HttpException,
+  HttpStatus,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateUsuarioDto, UpdateUsuarioDto } from './dto';
@@ -31,6 +36,12 @@ export class UsuariosService {
         pw,
       },
     });
+    if (usuario.length == 0) {
+      return new HttpException(
+        'Error al iniciar sesión',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
     return usuario[0];
   }
 

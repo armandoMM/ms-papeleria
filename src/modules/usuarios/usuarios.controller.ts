@@ -13,10 +13,7 @@ export class UsuariosController {
   }
 
   @Get()
-  getUser(
-    @Query('nombre') nombre: string,
-    @Query('pw') pw: string,
-  ): Promise<Usuario> {
+  getUser(@Query('nombre') nombre: string, @Query('pw') pw: string) {
     return this.usuarioService.getUser(nombre, pw);
   }
 
