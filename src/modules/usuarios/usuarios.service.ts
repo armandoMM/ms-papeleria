@@ -1,9 +1,4 @@
-import {
-  Injectable,
-  NotFoundException,
-  HttpException,
-  HttpStatus,
-} from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateUsuarioDto, UpdateUsuarioDto } from './dto';
@@ -30,19 +25,13 @@ export class UsuariosService {
   }
 
   async getUser(nombre: string, pw: string) {
-    const usuario = await this.userRepository.find({
+    const usuario = await this.userRepository.findOne({
       where: {
         nombre,
         pw,
       },
     });
-    if (usuario.length == 0) {
-      return new HttpException(
-        'Error al iniciar sesión',
-        HttpStatus.BAD_REQUEST,
-      );
-    }
-    return usuario[0];
+    return usuario;
   }
 
   async updateUser(usuario: UpdateUsuarioDto) {

@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  Query,
+  HttpException,
+  HttpStatus,
+} from '@nestjs/common';
 import { CreateUsuarioDto, UpdateUsuarioDto } from './dto';
 import { Usuario } from './usuario.entity';
 import { UsuariosService } from './usuarios.service';
@@ -9,17 +17,38 @@ export class UsuariosController {
 
   @Post()
   createUsuarios(@Body() newUser: CreateUsuarioDto): Promise<Usuario> {
-    return this.usuarioService.createUser(newUser);
+    try {
+      return this.usuarioService.createUser(newUser);
+    } catch (error) {
+      throw new HttpException(
+        'Error: No se pudo guardar usuario',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
   }
 
   @Get()
-  getUser(@Query('nombre') nombre: string, @Query('pw') pw: string) {
-    return this.usuarioService.getUser(nombre, pw);
+  async getUser(@Query('nombre') nombre: string, @Query('pw') pw: string) {
+    const usr = await this.usuarioService.getUser(nombre, pw);
+    if (!usr) {
+      throw new HttpException(
+        'Error al iniciar sesión',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+    return usr;
   }
 
   @Post('/delete-user')
   deleteUser(@Body('id') id: number) {
-    return this.usuarioService.deleteUser(id);
+    try {
+      return this.usuarioService.deleteUser(id);
+    } catch (error) {
+      throw new HttpException(
+        'Error al borrar usuario',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
   }
 
   @Get('/all')
@@ -29,6 +58,13 @@ export class UsuariosController {
 
   @Post('/update-user')
   updateUser(@Body() currentUser: UpdateUsuarioDto) {
-    return this.usuarioService.updateUser(currentUser);
+    try {
+      return this.usuarioService.updateUser(currentUser);
+    } catch (error) {
+      throw new HttpException(
+        'Error al actualizar Usuario',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
   }
 }
