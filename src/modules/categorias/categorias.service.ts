@@ -23,7 +23,7 @@ export class CategoriasService {
   async updateCategoria(categoria: UpdateCategoriaDto) {
     const categ = await this.categoriaRepository.find({
       where: {
-        nombre: categoria.nombre,
+        id: categoria.id,
       },
     });
     if (!categ) {

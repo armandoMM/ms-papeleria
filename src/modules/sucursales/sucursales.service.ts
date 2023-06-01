@@ -32,7 +32,7 @@ export class SucursalesService {
   async updateSucursal(sucursal: UpdateSucursalDto) {
     const suc = await this.sucursalRepository.find({
       where: {
-        nombre: sucursal.nombre,
+        id: sucursal.id,
       },
     });
     if (!suc) {

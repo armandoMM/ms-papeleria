@@ -22,7 +22,7 @@ export class MarcasService {
   async updateMarca(marca: UpdateMarcaDto) {
     const m = await this.marcaRepository.find({
       where: {
-        nombre: marca.nombre,
+        id: marca.id,
       },
     });
     if (!m) {

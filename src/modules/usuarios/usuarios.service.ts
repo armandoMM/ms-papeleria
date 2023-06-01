@@ -37,6 +37,7 @@ export class UsuariosService {
   async updateUser(usuario: UpdateUsuarioDto) {
     const usr = await this.userRepository.find({
       where: {
+        id: usuario.id,
         nombre: usuario.nombre,
         ape_paterno: usuario.ape_paterno,
         ape_materno: usuario.ape_materno,

@@ -36,7 +36,7 @@ export class ProveedoresService {
   async updateProveedor(proveedor: UpdateProveedorDto) {
     const prov = await this.proveedorRepository.find({
       where: {
-        nombre: proveedor.nombre,
+        id: proveedor.id,
       },
     });
     if (!prov) {

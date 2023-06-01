@@ -38,7 +38,7 @@ export class ProductosService {
   async updateProducto(producto: UpdateProductoDto) {
     const prod = await this.productoRepository.find({
       where: {
-        nombre: producto.nombre,
+        id: producto.id,
       },
     });
     if (!prod) {

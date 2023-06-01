@@ -3,6 +3,7 @@ import { Marca } from 'src/modules/marcas/marcas.entity';
 import { Proveedor } from 'src/modules/proveedores/proveedores.entity';
 
 export class UpdateProductoDto {
+  id: number;
   nombre: string;
   existencia: number;
   precio_unitario: number;

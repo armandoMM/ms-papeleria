@@ -2,6 +2,7 @@ import { Estado } from 'src/modules/estados/estados.entity';
 import { Tipo } from 'src/modules/tipos/tipos.entity';
 
 export class UpdateUsuarioDto {
+  id: number;
   nombre: string;
   pw?: string;
   ape_paterno: string;
@@ -12,6 +13,6 @@ export class UpdateUsuarioDto {
   numero?: string;
   colonia?: string;
   municipio?: string;
-  estado_id?: Estado;
-  tipo_id?: Tipo;
+  estado_id: Estado;
+  tipo_id: Tipo;
 }

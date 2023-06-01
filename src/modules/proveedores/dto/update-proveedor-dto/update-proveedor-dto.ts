@@ -1,6 +1,7 @@
 import { Estado } from 'src/modules/estados/estados.entity';
 
 export class UpdateProveedorDto {
+  id: number;
   nombre: string;
   telefono?: string;
   correo?: string;
